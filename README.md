@@ -1,2 +1,3 @@
 # anki-maths
-Personal maths anki deck
+
+My personal anki deck for maths
