@@ -133,6 +133,162 @@
         {
             "__type__": "Note",
             "fields": [
+                "Antiderivative $$f(x) = \\frac{1}{x},\\,x &gt; 0$$",
+                "$$F_c(x) = ln(x) + c$$"
+            ],
+            "guid": "DM@5e]LSem",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Calculus::Integral::Antiderivative"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "Antiderivative $$f(x) = \\frac{1}{x^2},\\, \\neq 0$$",
+                "$$F_c(x) = - \\frac{1}{x}&nbsp;+ c$$"
+            ],
+            "guid": "OG.nMtJ/=U",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Calculus::Integral::Antiderivative"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "Antiderivative $$f(x) = \\frac{1}{\\sqrt{x}},\\, &gt; 0$$",
+                "$$F_c(x) = 2\\sqrt{x} + c$$"
+            ],
+            "guid": "b<OY?7dDzl",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Calculus::Integral::Antiderivative"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "Antiderivative $$f(x) = e^x$$",
+                "$$F_c(x) = e^x + c$$"
+            ],
+            "guid": "rbVMtmm91e",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Calculus::Integral::Antiderivative"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "Antiderivative $$f(x) = a^x,\\, x &gt; 0,\\, x \\neq 1$$",
+                "$$F_c(x) = a^x * \\frac{1}{\\ln{a}} + c$$"
+            ],
+            "guid": "JKqG_AmI0l",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Calculus::Integral::Antiderivative"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "Antiderivative $$f(x) = \\frac{1}{1 + x^2}$$",
+                "$$F_c(x) = \\arctan{x} + c$$"
+            ],
+            "guid": "unhkQL_m5I",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Calculus::Integral::Antiderivative"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "Antiderivative $$f(x) = \\frac{1}{\\sqrt{1 - x^2}},\\, \\lvert x \\rvert \\leq 1$$",
+                "$$F_c(x) = \\arcsin{x} + c$$"
+            ],
+            "guid": "ng:C$X<*a>",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Calculus::Integral::Antiderivative"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "Antiderivative $$f(x) = \\frac{1}{\\sqrt{x^2+1}}$$",
+                "$$F_c(x) = \\ln{\\left(x + \\sqrt{x^2 + 1}\\right)} + c$$"
+            ],
+            "guid": "ca+XcmRXC|",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Calculus::Integral::Antiderivative"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "Antiderivative $$f(x) = \\frac{1}{\\sqrt{x^2-1}},\\, \\lvert x \\rvert &gt; 1$$",
+                "$$F_c(x) = \\lvert \\ln{\\left(x + \\sqrt{x^2 - 1}\\right)} \\rvert + c$$"
+            ],
+            "guid": "jMKkeo4Pj:",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Calculus::Integral::Antiderivative"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "Antiderivative $$f(x) = \\sin{x}$$",
+                "$$F_c(x) = - \\cos{x} + c$$"
+            ],
+            "guid": "CH5I<I[[h)",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Calculus::Integral::Antiderivative"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "Antiderivative $$f(x) = \\cos{x}$$",
+                "$$F_c(x) = \\sin{x} + c$$"
+            ],
+            "guid": "z]n_@ne81Q",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Calculus::Integral::Antiderivative"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "Antiderivative $$f(x) = \\frac{1}{sin^2 \\, x}$$",
+                "$$F_c(x) = - \\cot{x} + c$$"
+            ],
+            "guid": "rJCr8=Xz5f",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Calculus::Integral::Antiderivative"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "Antiderivative $$f(x) = \\frac{1}{cos^2 \\, x}$$",
+                "$$F_c(x) = \\tan{x} + c$$"
+            ],
+            "guid": "CsQXRH&!;;",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Calculus::Integral::Antiderivative"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
                 "What is the decimal representation of $\\frac{1}{2}$?",
                 "$0.5$"
             ],
