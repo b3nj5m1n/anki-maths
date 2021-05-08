@@ -67,8 +67,728 @@
     "dyn": 0,
     "extendNew": 0,
     "extendRev": 0,
-    "media_files": [],
+    "media_files": [
+        "_auto-render.js",
+        "_katex.css",
+        "_katex.min.js"
+    ],
     "name": "🔢 Maths",
-    "note_models": [],
-    "notes": []
+    "note_models": [
+        {
+            "__type__": "NoteModel",
+            "crowdanki_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "css": "/* Variables for frequently used values */\n:root {\n    /* Main background color of the card */\n    --main-bg-color: #434343;\n    --upper-bg-color: #555555;\n    --lower-bg-color: #434343;\n    --upper-fg-color: #eeeeee;\n    --lower-fg-color: #eeeeee;\n    /* Primary Accent Color, broken up into individual hsl values */\n    --colorPrimary-h: 260;\n    --colorPrimary-s: 60%;\n    --colorPrimary-l: 65%;\n    /* Set primary color variable from previously defined hsl values */\n    --primary-color: hsl(var(--colorPrimary-h), var(--colorPrimary-s), var(--colorPrimary-l));\n    /* Calculate Secondary and Tertiary Colors from the hsl values of the Primary Color */\n    --secondary-color: hsl(calc(var(--colorPrimary-h) + 240), var(--colorPrimary-s), var(--colorPrimary-l));\n    --tertiary-color: hsl(calc(var(--colorPrimary-h) + 120), var(--colorPrimary-s), var(--colorPrimary-l));\n    /* How big the stripe at the top should be */\n    --stripe-height: 5px;\n    /* How far elements such as flags should be away from the stripe */\n    --margin-from-stripe: 5px;\n}\n\nhtml,\nbody {\n    word-wrap: break-word;\n    background-color: var(--main-bg-color);\n    padding: 0;\n    margin: 0;\n}\nu {\n    text-decoration-style: wavy;\n    text-underline-position: under;\n    color: white;\n    padding: 1px;\n}\n\n/* Hide the default play button anki provides */\n.replay-button svg {\n    display: none;\n}\n.hidden {\n    display: none;\n}\n#answer {\n    /* font-size: 5vw; */\n}\n\n/* Main skeleton of an anki card */\n.card {\n    font-family: UD Digi Kyokasho N-R;\n    font-size: 0px;\n    text-align: center;\n}\n/* Div around all of the visible content of the card */\n.kard {\n    height: 100%;\n    background-color: var(--main-bg-color);\n}\n.kard.night_mode {\n    background-color: var(--main-bg-color);\n}\n/* Stripe at the top of the card */\n.stripe {\n    height: var(--stripe-height);\n    background-color: var(--primary-color);\n}\n.stripe.night_mode {\n    background-color: var(--primary-color);\n}\n\n/* Upper part of the card (Question) */\n.body-upper {\n    font-family: Noto Sans;\n    font-size: 30px;\n    color: var(--upper-fg-color);\n    background-color: var(--upper-bg-color);\n    padding: 30px 10px 30px;\n    border-radius: 0px 0px 0px 0px;\n}\n.body-upper.night_mode {\n    color: var(--upper-fg-color);\n    background-color: var(--upper-bg-color);\n}\n/* Lower part of the card (Answer) */\n.body-lower {\n    text-align: left;\n    color: var(--lower-fg-color);\n    height: 100%;\n    padding: 25px 25px 25px 25px;\n    border-radius: 0px 0px 0px 0px;\n}\n.body-lower.night_mode {\n    color: var(--lower-fg-color);\n    color: var(--lower-bg-color);\n}\n\n.notes {\n    font-family: Noto Sans Regular;\n    font-size: 20px;\n    text-align: center;\n    font-weight: bold;\n}\n\n/* Show extra information button */\n.extra_toggle {\n    display: block;\n    font-family: Noto Sans Regular;\n    font-size: 15px;\n    color: var(--upper-fg-color);\n    background-color: var(--upper-bg-color);\n    border-radius: 0px;\n    padding: 5px;\n    width: 50%;\n    text-align: center;\n    font-weight: 500;\n    margin: auto;\n    margin-top: 20px;\n    transition: all 0.15s ease-out;\n}\n.extra_toggle:hover {\n    filter: brightness(90%);\n}\n\n/* Div containing extra information, hidden by default */\n.extra {\n    display: none;\n    font-family: Noto Sans Regular;\n    font-size: 15px;\n    border: 3px dashed var(--primary-color);\n    color: var(--upper-fg-color);\n    padding: 20px;\n    margin: 30px 20px 3px 20px;\n    text-align: center;\n    font-weight: 500;\n}\n/* Div containing mnemonics or notes, situated inside the extra div */\n.mnemonic {\n    display: block;\n    margin-bottom: 2%;\n    border-color: var(--secondary-color);\n}\n\n/* Contains extra elements at the top, e.g. flags */\n.top-container {\n    width: 100%;\n    position: absolute;\n    top: calc(var(--stripe-height) + var(--margin-from-stripe));\n    left: 0;\n}\n.extra-top-right {\n    position: absolute;\n    right: var(--margin-from-stripe);\n}\n.extra-top-left {\n    position: absolute;\n    left: var(--margin-from-stripe);\n}\n.extra-top-right img {\n    float: right;\n    width: 55px;\n    border-radius: 10%;\n}\n.extra-top-left img {\n    float: left;\n    width: 55px;\n    border-radius: 10%;\n}\n\n/* Style cloze to use the primary color as the background color to make the cloze deletion easier to spot */\n.cloze {\n    background-color: var(--primary-color);\n}\n.cloze.night_mode {\n    background-color: var(--primary-color);\n}\n\n/* Highlighting classes */\n.hightlight-1 {\n    background-color: var(--primary-color);\n\tdisplay: inline;\n}\n\n.hightlight-2 {\n    background-color: var(--secondary-color);\n\tdisplay: inline;\n}\n\n.hightlight-3 {\n    background-color: var(--tertiary-color);\n\tdisplay: inline;\n}\n\n.hightlight-1.night_mode {\n    background-color: var(--primary-color);\n\tdisplay: inline;\n}\n\n.hightlight-2.night_mode {\n    background-color: var(--secondary-color);\n\tdisplay: inline;\n}\n\n.hightlight-3.night_mode {\n    background-color: var(--tertiary-color);\n\tdisplay: inline;\n}",
+            "flds": [
+                {
+                    "font": "Arial",
+                    "name": "Front",
+                    "ord": 0,
+                    "rtl": false,
+                    "size": 20,
+                    "sticky": true
+                },
+                {
+                    "font": "Arial",
+                    "name": "Back",
+                    "ord": 1,
+                    "rtl": false,
+                    "size": 20,
+                    "sticky": true
+                }
+            ],
+            "latexPost": "\\end{document}",
+            "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+            "latexsvg": false,
+            "name": "prettyBasicMaths",
+            "req": [
+                [
+                    0,
+                    "any",
+                    [
+                        0
+                    ]
+                ]
+            ],
+            "sortf": 0,
+            "tags": [
+                "Allgemeinwissen::Calculus::Integral::Antiderivative"
+            ],
+            "tmpls": [
+                {
+                    "afmt": "<div class=\"kard\">\n    <div class=\"stripe\"></div>\n    <div class=\"body-upper\">\n        <div id=\"question\" onClick=\"playAudio('question')\">{{Front}}</div>\n    </div>\n\n    <div class=\"body-lower\">\n        <div class=\"notes\">\n            <div id=\"answer\" class=\"autoplay\" onClick=\"playAudio('answer')\">{{Back}}</div>\n        </div>\n    </div>\n</div>\n\n<div id=\"tags\" style=\"display: none;\">{{Tags}}</div>\n\n<script>\n    function loadResource(localPath, onlinePath, type) {\n        return new Promise((resolve, reject) => {\n            let element = document.createElement(type);\n            if (type == \"link\") {\n                element.setAttribute('rel', 'stylesheet');\n                element.type = 'text/css';\n            }\n            element.onload = resolve;\n            // localPath/onlinePath not implement yet, mainly because idk how to download the files automatically on first use\n            element.onerror = function() {}\n            if (type == \"link\") {\n                element.href = onlinePath;\n            } else {\n                element.src = onlinePath;\n            }\n            document.head.appendChild(element);\n        })\n    }\n    \n    var resources = [\n        loadResource(\"_katex.css\", \"https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css\", \"link\"),\n        loadResource(\"_katex.min.js\", \"https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js\", \"script\"),\n        loadResource(\"_auto-render.js\", \"https://cdn.jsdelivr.net/gh/Jwrede/Anki-KaTeX-Markdown/auto-render-cdn.js\", \"script\"),\n        loadResource(\"_fitty.min.js\", \"https://cdn.jsdelivr.net/npm/fitty@2.3.2/dist/fitty.min.js\", \"script\"),\n    ];\n    \n    Promise.all(resources).then(renderMath).then(fitMath);\n    \n    function renderMath() {\n        renderMathInElement(document.body, {\n            delimiters:  [\n                {left: \"$$\", right: \"$$\", display: true},\n                {left: \"$\", right: \"$\", display: false}\n            ],\n        });\n    }\n    function fitMath() {\n        fitty(\".katex\");\n    }\n    \n    \n    /* Set the primary color based on tag */\n    var tags = document.getElementById(\"tags\").innerText.split(\" \");\n    tags.forEach(function (tag) {\n        var split = tag.split(\"::\");\n        if (split[0] == \"Color\") {\n            var r = document.querySelector(\":root\");\n            r.style.setProperty(\"--primary-color\", split[1]);\n        }\n    });\n    /* Play audio when clicking the respective element */\n    function playAudio(fieldToPlay) {\n        var elem = document.querySelector(\"#\" + fieldToPlay + \" .soundLink, #\" + fieldToPlay + \" .replaybutton\");\n        if (elem) {\n            elem.click();\n        }\n    }\n    /* Autoplay some elements */\n    var elem = document.querySelector(\".autoplay .soundLink, .autoplay .replaybutton\");\n    if (elem) {\n        elem.click();\n    }\n    \n    /* Set the primary color based on tag */\n    var tags = document.getElementById(\"tags\").innerText.split(\" \");\n    tags.forEach(function (tag) {\n        var split = tag.split(\"::\");\n        if (split[0] == \"Color\") {\n            var r = document.querySelector(\":root\");\n            r.style.setProperty(\"--primary-color\", split[1]);\n        }\n    });\n    /* Play audio when clicking the respective element */\n    function playAudio(fieldToPlay) {\n        var elem = document.querySelector(\"#\" + fieldToPlay + \" .soundLink, #\" + fieldToPlay + \" .replaybutton\");\n        if (elem) {\n            elem.click();\n        }\n    }\n    /* Autoplay some elements */\n    var elem = document.querySelector(\".autoplay .soundLink, .autoplay .replaybutton\");\n    if (elem) {\n        elem.click();\n    }\n    \n    \n    /* Set the primary color based on tag */\n    var tags = document.getElementById(\"tags\").innerText.split(\" \");\n    tags.forEach(function (tag) {\n        var split = tag.split(\"::\");\n        if (split[0] == \"Color\") {\n            var r = document.querySelector(\":root\");\n            r.style.setProperty(\"--primary-color\", split[1]);\n        }\n    });\n    /* Play audio when clicking the respective element */\n    function playAudio(fieldToPlay) {\n        var elem = document.querySelector(\"#\" + fieldToPlay + \" .soundLink, #\" + fieldToPlay + \" .replaybutton\");\n        if (elem) {\n            elem.click();\n        }\n    }\n    /* Autoplay some elements */\n    var elem = document.querySelector(\".autoplay .soundLink, .autoplay .replaybutton\");\n    if (elem) {\n        elem.click();\n    }\n</script>",
+                    "bafmt": "",
+                    "bfont": "",
+                    "bqfmt": "",
+                    "bsize": 0,
+                    "did": null,
+                    "name": "Card 1",
+                    "ord": 0,
+                    "qfmt": "<div class=\"kard\">\n    <div class=\"stripe\"></div>\n    <div class=\"body-upper\">\n        <div id=\"question\" class=\"autoplay\" onClick=\"playAudio('question')\">{{Front}}</div>\n    </div>\n\n    <div class=\"body-lower\">\n        <div class=\"notes\">\n            ?\n        </div>\n    </div>\n</div>\n\n<div id=\"tags\" style=\"display: none;\">{{Tags}}</div>\n\n<script>\n    function loadResource(localPath, onlinePath, type) {\n        return new Promise((resolve, reject) => {\n            let element = document.createElement(type);\n            if (type == \"link\") {\n                element.setAttribute('rel', 'stylesheet');\n                element.type = 'text/css';\n            }\n            element.onload = resolve;\n            // localPath/onlinePath not implement yet, mainly because idk how to download the files automatically on first use\n            element.onerror = function() {}\n            if (type == \"link\") {\n                element.href = onlinePath;\n            } else {\n                element.src = onlinePath;\n            }\n            document.head.appendChild(element);\n        })\n    }\n    \n    var resources = [\n        loadResource(\"_katex.css\", \"https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css\", \"link\"),\n        loadResource(\"_katex.min.js\", \"https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js\", \"script\"),\n        loadResource(\"_auto-render.js\", \"https://cdn.jsdelivr.net/gh/Jwrede/Anki-KaTeX-Markdown/auto-render-cdn.js\", \"script\"),\n        loadResource(\"_fitty.min.js\", \"https://cdn.jsdelivr.net/npm/fitty@2.3.2/dist/fitty.min.js\", \"script\"),\n    ];\n    \n    Promise.all(resources).then(renderMath).then(fitMath);\n    \n    function renderMath() {\n        renderMathInElement(document.body, {\n            delimiters:  [\n                {left: \"$$\", right: \"$$\", display: true},\n                {left: \"$\", right: \"$\", display: false}\n            ],\n        });\n    }\n    function fitMath() {\n        fitty(\".katex\");\n    }\n    \n    \n    /* Set the primary color based on tag */\n    var tags = document.getElementById(\"tags\").innerText.split(\" \");\n    tags.forEach(function (tag) {\n        var split = tag.split(\"::\");\n        if (split[0] == \"Color\") {\n            var r = document.querySelector(\":root\");\n            r.style.setProperty(\"--primary-color\", split[1]);\n        }\n    });\n    /* Play audio when clicking the respective element */\n    function playAudio(fieldToPlay) {\n        var elem = document.querySelector(\"#\" + fieldToPlay + \" .soundLink, #\" + fieldToPlay + \" .replaybutton\");\n        if (elem) {\n            elem.click();\n        }\n    }\n    /* Autoplay some elements */\n    var elem = document.querySelector(\".autoplay .soundLink, .autoplay .replaybutton\");\n    if (elem) {\n        elem.click();\n    }\n    \n    /* Set the primary color based on tag */\n    var tags = document.getElementById(\"tags\").innerText.split(\" \");\n    tags.forEach(function (tag) {\n        var split = tag.split(\"::\");\n        if (split[0] == \"Color\") {\n            var r = document.querySelector(\":root\");\n            r.style.setProperty(\"--primary-color\", split[1]);\n        }\n    });\n    /* Play audio when clicking the respective element */\n    function playAudio(fieldToPlay) {\n        var elem = document.querySelector(\"#\" + fieldToPlay + \" .soundLink, #\" + fieldToPlay + \" .replaybutton\");\n        if (elem) {\n            elem.click();\n        }\n    }\n    /* Autoplay some elements */\n    var elem = document.querySelector(\".autoplay .soundLink, .autoplay .replaybutton\");\n    if (elem) {\n        elem.click();\n    }\n    \n    \n    /* Set the primary color based on tag */\n    var tags = document.getElementById(\"tags\").innerText.split(\" \");\n    tags.forEach(function (tag) {\n        var split = tag.split(\"::\");\n        if (split[0] == \"Color\") {\n            var r = document.querySelector(\":root\");\n            r.style.setProperty(\"--primary-color\", split[1]);\n        }\n    });\n    /* Play audio when clicking the respective element */\n    function playAudio(fieldToPlay) {\n        var elem = document.querySelector(\"#\" + fieldToPlay + \" .soundLink, #\" + fieldToPlay + \" .replaybutton\");\n        if (elem) {\n            elem.click();\n        }\n    }\n    /* Autoplay some elements */\n    var elem = document.querySelector(\".autoplay .soundLink, .autoplay .replaybutton\");\n    if (elem) {\n        elem.click();\n    }\n</script>"
+                }
+            ],
+            "type": 0
+        }
+    ],
+    "notes": [
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{1}{2}$?",
+                "$0.5$"
+            ],
+            "guid": "ITmc7Qp,dd",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::2"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{1}{3}$?",
+                "$0.\\overline{333}$"
+            ],
+            "guid": "r3kkeeB#BI",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::6"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{2}{3}$?",
+                "$0.\\overline{666}$"
+            ],
+            "guid": "o,uO6Y0n7#",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::6"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{1}{4}$?",
+                "$0.25$"
+            ],
+            "guid": "r}xp!B3!_d",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::4"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{2}{4}$?",
+                "$0.5$"
+            ],
+            "guid": "hPBk/P@N8`",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::4"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{3}{4}$?",
+                "$0.75$"
+            ],
+            "guid": "cb`]jNXd|r",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::4"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{1}{5}$?",
+                "$0.2$"
+            ],
+            "guid": "GzB]ak$oq<",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::5"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{2}{5}$?",
+                "$0.4$"
+            ],
+            "guid": "GoF.rBPDeC",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::5"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{3}{5}$?",
+                "$0.6$"
+            ],
+            "guid": "gyPKX2VM8Y",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::5"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{4}{5}$?",
+                "$0.8$"
+            ],
+            "guid": "IPCthlFrk9",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::5"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{1}{6}$?",
+                "$0.1\\overline{666}$"
+            ],
+            "guid": "z1$:^FsV04",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::6"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{2}{6}$?",
+                "$0.\\overline{333}$"
+            ],
+            "guid": "E!@.1[a8QG",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::6"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{3}{6}$?",
+                "$0.5$"
+            ],
+            "guid": "M--r!!2;k8",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::6"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{4}{6}$?",
+                "$0.\\overline{666}$"
+            ],
+            "guid": "EQ#>htbKyF",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::6"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{5}{6}$?",
+                "$0.8\\overline{333}$"
+            ],
+            "guid": "E;.IW.%C9k",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::6"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{1}{7}$?",
+                "$0.\\overline{142857}$"
+            ],
+            "guid": "yXMF(fHPn)",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::7"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{2}{7}$?",
+                "$0.\\overline{285714}$"
+            ],
+            "guid": "ulWyA^%&i%",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::7"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{3}{7}$?",
+                "$0.\\overline{428571}$"
+            ],
+            "guid": "i3m@Z9fWae",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::7"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{4}{7}$?",
+                "$0.\\overline{571428}$"
+            ],
+            "guid": "JWBd]5yM|K",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::7"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{5}{7}$?",
+                "$0.\\overline{714285}$"
+            ],
+            "guid": "y!)Ehw^{AQ",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::7"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{6}{7}$?",
+                "$0.\\overline{857142}$"
+            ],
+            "guid": "GQFZ[nLG{#",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::7"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{1}{8}$?",
+                "$0.125$"
+            ],
+            "guid": "Pj*LrypGD;",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::8"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{2}{8}$?",
+                "$0.25$"
+            ],
+            "guid": "s.7uT7W2@<",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::8"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{3}{8}$?",
+                "$0.375$"
+            ],
+            "guid": "pJsYhflzh!",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::8"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{4}{8}$?",
+                "$0.5$"
+            ],
+            "guid": "D:qYiMFZBk",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::8"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{5}{8}$?",
+                "$0.675$"
+            ],
+            "guid": "Oby]4M6%Y!",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::8"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{6}{8}$?",
+                "$0.75$"
+            ],
+            "guid": "F^2D^2>%f7",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::8"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{7}{8}$?",
+                "$0.875$"
+            ],
+            "guid": "yZqPcCR7xH",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::8"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{1}{9}$?",
+                "$0.\\overline{1}$"
+            ],
+            "guid": "vL8@|Lxh{@",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::9"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{2}{9}$?",
+                "$0.\\overline{2}$"
+            ],
+            "guid": "pVlypzIlFY",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::9"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{3}{9}$?",
+                "$0.\\overline{3}$"
+            ],
+            "guid": "H8i?*l2zo0",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::9"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{4}{9}$?",
+                "$0.\\overline{4}$"
+            ],
+            "guid": "i`WwNU|++K",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::9"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{5}{9}$?",
+                "$0.\\overline{5}$"
+            ],
+            "guid": "HH<4;HbX8i",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::9"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{6}{9}$?",
+                "$0.\\overline{6}$"
+            ],
+            "guid": "A][i8V2mjO",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::9"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{7}{9}$?",
+                "$0.\\overline{7}$"
+            ],
+            "guid": "J%bahOAzvw",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::9"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{8}{9}$?",
+                "$0.\\overline{8}$"
+            ],
+            "guid": "MK&1jpW6ra",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::9"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{1}{10}$?",
+                "$0.1$"
+            ],
+            "guid": "JvX|%CXXf5",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::10"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{2}{10}$?",
+                "$0.2$"
+            ],
+            "guid": "jM-_3drq>^",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::10"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{3}{10}$?",
+                "$0.3$"
+            ],
+            "guid": "p+c}&M.,)~",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::10"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{4}{10}$?",
+                "$0.4$"
+            ],
+            "guid": "gmWXx9shsl",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::10"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{5}{10}$?",
+                "$0.5$"
+            ],
+            "guid": "bYg^3Gt.c7",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::10"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{6}{10}$?",
+                "$0.6$"
+            ],
+            "guid": "og9xBO-T{P",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::10"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{7}{10}$?",
+                "$0.7$"
+            ],
+            "guid": "tve~b(wTb@",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::10"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{8}{10}$?",
+                "$0.8$"
+            ],
+            "guid": "zJoQQB]taO",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::10"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{9}{10}$?",
+                "$0.9$"
+            ],
+            "guid": "e$2ukr8&7P",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::10"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{1}{11}$?",
+                "$0.\\overline{09}$"
+            ],
+            "guid": "n3<]b>*E9:",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::11"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{2}{11}$?",
+                "$0.\\overline{18}$"
+            ],
+            "guid": "fk,)8f&syD",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::11"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{3}{11}$?",
+                "$0.\\overline{27}$"
+            ],
+            "guid": "PmJT.u1Zfz",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::11"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{4}{11}$?",
+                "$0.\\overline{36}$"
+            ],
+            "guid": "r^yI!;0|g:",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::11"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{5}{11}$?",
+                "$0.\\overline{45}$"
+            ],
+            "guid": "w|dt4#]KOM",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::11"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{6}{11}$?",
+                "$0.\\overline{54}$"
+            ],
+            "guid": "u8nbG0K1<T",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::11"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{7}{11}$?",
+                "$0.\\overline{63}$"
+            ],
+            "guid": "u6MPv.cn~D",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::11"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{8}{11}$?",
+                "$0.\\overline{72}$"
+            ],
+            "guid": "CY1tZnb7+6",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::11"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{9}{11}$?",
+                "$0.\\overline{81}$"
+            ],
+            "guid": "2INm*q4R3",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::11"
+            ]
+        },
+        {
+            "__type__": "Note",
+            "fields": [
+                "What is the decimal representation of $\\frac{10}{11}$?",
+                "$0.\\overline{90}$"
+            ],
+            "guid": "mo+XGdI+/n",
+            "note_model_uuid": "7e9cd600-9c34-11eb-94d5-40b076dccfad",
+            "tags": [
+                "Maths::Mental_Arithmetic::Fractions::11"
+            ]
+        }
+    ]
 }
